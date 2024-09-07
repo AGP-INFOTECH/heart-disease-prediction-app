@@ -10,6 +10,7 @@ CORS(app)  # This enables CORS for all routes
 # Specify the full file names or paths
 model_file_name = 'heart_disease_model.pkl'
 scaler_file_name = 'scaler.pkl'
+
 # Load the trained model and scaler
 with open('heart_disease_model.pkl', 'rb') as model_file:
     model = pickle.load(model_file)

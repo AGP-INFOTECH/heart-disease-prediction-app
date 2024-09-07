@@ -1,183 +1,96 @@
-/* App.css */
-
-/* Base Styles */
+/* General Styles */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f4f4f9;
+  font-family: 'Arial', sans-serif;
+  background-color: #f7f9fc;
   margin: 0;
   padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
 }
 
+/* Main Container */
 .App {
-  background: #ffffff;
-  border-radius: 10px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-  max-width: 500px;
-  width: 100%;
-  padding: 30px;
-  box-sizing: border-box;
-  transition: transform 0.3s ease-in-out;
-}
-
-.App:hover {
-  transform: scale(1.02);
-}
-
-h1 {
-  font-size: 28px;
-  color: #333;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Header */
+h1 {
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+/* Form Styles */
+.form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  width: 100%;
+  max-width: 600px;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Group Styles */
+.form-group {
+  display: flex;
+  flex-direction: column;
 }
 
 label {
-  display: flex;
-  flex-direction: column;
-  font-size: 16px;
+  margin-bottom: 0.5rem;
   color: #555;
+  font-weight: bold;
 }
 
-input[type="number"] {
-  padding: 12px;
+input {
+  padding: 0.8rem;
   border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 16px;
-  width: 100%;
-  box-sizing: border-box;
+  border-radius: 4px;
+  font-size: 1rem;
   transition: border-color 0.3s ease;
 }
 
-input[type="number"]:focus {
+input:focus {
   border-color: #007bff;
   outline: none;
 }
 
-button {
-  background-color: #007bff;
-  color: white;
+/* Button Styles */
+.submit-button {
+  padding: 0.8rem 1.2rem;
   border: none;
-  border-radius: 5px;
-  padding: 12px 20px;
-  font-size: 16px;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-button:hover {
+.submit-button:hover {
   background-color: #0056b3;
+  transform: scale(1.02);
 }
 
-button:active {
-  transform: scale(0.98);
-}
-
-button:disabled {
-  background-color: #c0c0c0;
-  cursor: not-allowed;
-}
-
+/* Prediction Result Styles */
 .prediction-result {
-  margin-top: 20px;
-  padding: 15px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  background-color: #f9f9f9;
+  margin-top: 2rem;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transition: opacity 0.3s ease;
+  text-align: center;
 }
 
 .prediction-result h2 {
-  margin-top: 0;
+  margin-bottom: 0.5rem;
   color: #333;
 }
 
 .prediction-result p {
-  font-size: 18px;
-  color: #333;
-}
-
-.loading {
-  font-size: 16px;
+  font-size: 1.2rem;
   color: #007bff;
-  text-align: center;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-  .App {
-    padding: 20px;
-    max-width: 100%;
-    margin: 10px;
-  }
-
-  h1 {
-    font-size: 24px;
-  }
-
-  .form {
-    gap: 10px;
-  }
-
-  label {
-    font-size: 14px;
-  }
-
-  input[type="number"] {
-    font-size: 14px;
-    padding: 10px;
-  }
-
-  button {
-    padding: 10px 16px;
-    font-size: 14px;
-  }
-
-  .prediction-result p {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 480px) {
-  .App {
-    padding: 15px;
-    max-width: 100%;
-    margin: 5px;
-  }
-
-  h1 {
-    font-size: 20px;
-  }
-
-  .form {
-    gap: 8px;
-  }
-
-  label {
-    font-size: 12px;
-  }
-
-  input[type="number"] {
-    font-size: 12px;
-    padding: 8px;
-  }
-
-  button {
-    padding: 8px 14px;
-    font-size: 12px;
-  }
-
-  .prediction-result p {
-    font-size: 14px;
-  }
 }
