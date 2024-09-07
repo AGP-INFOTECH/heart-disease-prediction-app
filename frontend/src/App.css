@@ -18,6 +18,12 @@ body {
 h1 {
   color: #333;
   margin-bottom: 1rem;
+  font-size: 2rem;
+  transition: color 0.3s ease;
+}
+
+h1:hover {
+  color: #007bff;
 }
 
 /* Form Styles */
@@ -31,6 +37,11 @@ h1 {
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.form:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 /* Form Group Styles */
@@ -43,6 +54,11 @@ label {
   margin-bottom: 0.5rem;
   color: #555;
   font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+label:hover {
+  color: #007bff;
 }
 
 input {
@@ -50,11 +66,12 @@ input {
   border: 1px solid #ddd;
   border-radius: 4px;
   font-size: 1rem;
-  transition: border-color 0.3s ease;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 input:focus {
   border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
   outline: none;
 }
 
@@ -67,12 +84,14 @@ input:focus {
   color: #fff;
   font-size: 1rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 123, 255, 0.2);
 }
 
 .submit-button:hover {
   background-color: #0056b3;
   transform: scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
 }
 
 /* Prediction Result Styles */
@@ -83,6 +102,11 @@ input:focus {
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   text-align: center;
+  transition: box-shadow 0.3s ease;
+}
+
+.prediction-result:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .prediction-result h2 {
@@ -93,4 +117,31 @@ input:focus {
 .prediction-result p {
   font-size: 1.2rem;
   color: #007bff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .App {
+    padding: 1rem;
+  }
+
+  .form {
+    padding: 1rem;
+    max-width: 100%;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .form {
+    padding: 0.8rem;
+  }
+
+  .submit-button {
+    width: 100%;
+    font-size: 0.9rem;
+  }
 }
