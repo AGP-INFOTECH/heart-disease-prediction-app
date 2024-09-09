@@ -1,0 +1,199 @@
+/* Background & General Styling */
+.prediction-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: radial-gradient(circle, rgba(255, 165, 0, 0.2), rgba(255, 0, 150, 0.4)), url('https://source.unsplash.com/1920x1080/?technology,health');
+    background-size: cover;
+    backdrop-filter: blur(10px);
+    color: #fff;
+  }
+  
+  /* Glassmorphism Box */
+  .glass-box {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    backdrop-filter: blur(12px);
+    padding: 40px;
+    max-width: 700px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .glass-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.4);
+  }
+  
+  /* Title */
+  .title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 30px;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    animation: titleSlideIn 1.5s ease;
+  }
+  
+  @keyframes titleSlideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-50px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Form Styling */
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  /* Form Groups */
+  .form-group {
+    flex: 1 1 calc(50% - 20px); /* Adjusts to 50% width with gap consideration */
+    min-width: 300px; /* Ensures responsiveness */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+  
+  .form-label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 12px;
+    font-size: 1.1rem;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    transition: all 0.3s ease;
+  }
+  
+  .form-input:focus {
+    border-color: #ffffff;
+    outline: none;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  }
+  
+  /* Call-to-Action Button */
+  .cta-button {
+    background: linear-gradient(135deg, #ff007a, #ff8c00);
+    color: #fff;
+    padding: 15px 30px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  .cta-button:hover {
+    background: linear-gradient(135deg, #ff007a, #ff6f00);
+    transform: scale(1.05);
+  }
+  
+  /* Loading Message */
+  .loading-message {
+    margin-top: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+    color: #ffffff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+  }
+  
+  .loading-message h2 {
+    font-size: 2rem;
+    color: #ff007a;
+  }
+  
+  /* Prediction Result */
+  .prediction-result {
+    margin-top: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 15px;
+    color: #ffffff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+    animation: fadeIn 1s ease;
+  }
+  
+  .prediction-result h2 {
+    font-size: 2rem;
+    color: #ff007a;
+  }
+  
+  .prediction-result p {
+    font-size: 1.3rem;
+    margin-top: 10px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .glass-box {
+      padding: 30px;
+    }
+  
+    .title {
+      font-size: 2.5rem;
+    }
+  
+    .form-input {
+      font-size: 1rem;
+      padding: 10px;
+    }
+  
+    .cta-button {
+      font-size: 1.1rem;
+      padding: 12px;
+    }
+  
+    .prediction-result h2 {
+      font-size: 1.8rem;
+    }
+  
+    .prediction-result p {
+      font-size: 1.1rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .form-label {
+      font-size: 1rem;
+    }
+  
+    .form-input {
+      font-size: 0.9rem;
+      padding: 8px;
+    }
+  
+    .cta-button {
+      font-size: 1rem;
+      padding: 8px;
+    }
+  
+    .prediction-result h2 {
+      font-size: 1.5rem;
+    }
+  
+    .prediction-result p {
+      font-size: 1rem;
+    }
+  }
+  

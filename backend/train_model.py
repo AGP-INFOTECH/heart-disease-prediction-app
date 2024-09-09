@@ -1,6 +1,6 @@
 import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LogisticRegression
+from sklearn.model_selection import train_test_split, GridSearchCV
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import accuracy_score
 import pickle
@@ -20,25 +20,34 @@ scaler = StandardScaler()
 X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
 
-# Train the model
-model = LogisticRegression()
-model.fit(X_train, y_train)
+# Use Random Forest Classifier
+model = RandomForestClassifier(n_estimators=100, random_state=42)
+
+# Hyperparameter tuning with Grid Search
+param_grid = {
+    'n_estimators': [100, 200, 300],
+    'max_depth': [10, 20, 30],
+    'min_samples_split': [2, 5, 10]
+}
+grid_search = GridSearchCV(model, param_grid, cv=5, scoring='accuracy', n_jobs=-1, verbose=2)
+grid_search.fit(X_train, y_train)
+
+# Best model from grid search
+best_model = grid_search.best_estimator_
 
 # Test the model
-y_pred = model.predict(X_test)
+y_pred = best_model.predict(X_test)
 accuracy = accuracy_score(y_test, y_pred)
 print(f"Model Accuracy: {accuracy * 100:.2f}%")
 
-
-# Specify the file names when saving
+# Save the model and the scaler using pickle
 model_file_name = 'heart_disease_model.pkl'
 scaler_file_name = 'scaler.pkl'
 
-# Save the model and the scaler using pickle
-with open('heart_disease_model.pkl', 'wb') as model_file:
-    pickle.dump(model, model_file)
+with open(model_file_name, 'wb') as model_file:
+    pickle.dump(best_model, model_file)
 
-with open('scaler.pkl', 'wb') as scaler_file:
+with open(scaler_file_name, 'wb') as scaler_file:
     pickle.dump(scaler, scaler_file)
 
-    print("Model and scaler have been saved successfully.")
+print("Model and scaler have been saved successfully.")
