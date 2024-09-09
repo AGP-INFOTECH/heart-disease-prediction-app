@@ -16,7 +16,6 @@ const Hero = () => {
             <Link to="/prediction">
               <button className="cta-button">Get Started</button>
             </Link>
-            <button className="learn-more-button">Learn More</button>
           </div>
         </div>
       </div>

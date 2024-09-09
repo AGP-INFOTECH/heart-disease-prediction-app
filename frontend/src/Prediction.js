@@ -3,27 +3,25 @@ import axios from 'axios';
 import './Prediction.css'; // Import the CSS file for the creative styling
 
 function Prediction() {
-
-    const [formData, setFormData] = useState({
-      age: '',
-      sex: '',
-      cp: '',
-      trestbps: '',
-      chol: '',
-      fbs: '',
-      restecg: '',
-      thalach: '',  
-      exang: '',
-      oldpeak: '',
-      slope: '',
-      ca: '',
-      thal: ''    
-    });
-    
-  
+  const [formData, setFormData] = useState({
+    age: '',
+    sex: '',
+    cp: '',
+    trestbps: '',
+    chol: '',
+    fbs: '',
+    restecg: '',
+    thalach: '',  
+    exang: '',
+    oldpeak: '',
+    slope: '',
+    ca: '',
+    thal: ''    
+  });
 
   const [prediction, setPrediction] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [showOverlay, setShowOverlay] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -35,6 +33,7 @@ function Prediction() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    setShowOverlay(true); // Show the overlay
 
     try {
       console.log("Submitting data:", formData);  // Debugging line
@@ -48,6 +47,11 @@ function Prediction() {
       console.error('Error making prediction:', error.response?.data || error.message);
       setLoading(false);
     }
+  };
+
+  const handleCloseOverlay = () => {
+    setShowOverlay(false);
+    setPrediction(null);
   };
 
   return (
@@ -74,16 +78,19 @@ function Prediction() {
           <button type="submit" className="cta-button">Predict Now</button>
         </form>
 
-        {loading && (
-          <div className="loading-message">
-            <h2>Compiling data...</h2>
-          </div>
-        )}
-
-        {prediction !== null && !loading && (
-          <div className="prediction-result">
-            <h2>Prediction Result</h2>
-            <p>{prediction}</p>
+        {showOverlay && (
+          <div className="overlay">
+            <div className="overlay-content glass-box">
+              {loading ? (
+                <h2>Compiling data...</h2>
+              ) : (
+                <div>
+                  <h2>Prediction Result</h2>
+                  <p>{prediction}</p>
+                  <button className="close-button" onClick={handleCloseOverlay}></button>
+                </div>
+              )}
+            </div>
           </div>
         )}
       </div>
